@@ -2,6 +2,7 @@ const { Builder, By, Key} = require('selenium-webdriver');
 const assert = require("assert");
 var should = require("chai").should();
 //SeleniumToDoListTest.js
+
 async function example() {
     // Создаём инстанс вебдрайвера
     let driver = await new Builder().forBrowser('chrome').build();
@@ -18,7 +19,8 @@ async function example() {
         return value
     });
 
-    todoItemText.should.equal("show the Selenium Tests");
+    assert.strictEqual(todoItemText, "show the Selenium Test");
+    todoItemText.should.equal("show the Selenium Test");
 
     await driver.quit();
 }
