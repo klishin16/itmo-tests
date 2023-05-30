@@ -1,19 +1,29 @@
-const { Builder, By, Key } = require('selenium-webdriver');
+import { Builder, By, Key, until } from 'selenium-webdriver';
 
-async function example() {
-    // Создаём инстанс вебдрайвера
-    let driver = await new Builder().forBrowser('chrome').build();
+describe('web driver', () => {
+    let driver;
 
-    //переходим на страницу
-    await driver.get('https://www.google.com/');
+    test('google first result', async () => {
+        // Создаём инстанс вебдрайвера
+        driver = new Builder().forBrowser('chrome').build();
 
-    // Получаем элемент ввода
-    const input = driver.findElement(By.name('q'));
+        // Выполняем переход на страницу
+        driver.get('https://www.google.com');
 
-    // Вызываем на элементе события нажатия клавиш (ввод в поиск и Enter)
-    await input.sendKeys('Selenium WebDriver', Key.RETURN);
+        // Получаем элемент ввода
+        const input = driver.findElement(By.name('q'));
 
+        // Вызываем на элементе события нажатия клавиш (ввод в поиск и Enter)
+        await input.sendKeys('hello', Key.ENTER);
 
-    await driver.quit();
-}
-example();
+        // Дожидаемся пока не появится элемент и получаем его
+        const firstResult = await driver.wait(until.elementLocated(By.css('h3')), 10000);
+
+        // Выводим содержимое элемента
+        console.log(await firstResult.getAttribute('textContent'));
+    }, 10000);
+
+    afterEach(() => {
+        driver.quit();
+    });
+});
