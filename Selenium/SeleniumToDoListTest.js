@@ -1,7 +1,8 @@
-const { Builder, By, Key} = require('selenium-webdriver');
+const {Builder, By, Key} = require('selenium-webdriver');
 const assert = require("assert");
-var should = require("chai").should();
-//SeleniumToDoListTest.js
+//var should = require("chai").should();
+
+//node SeleniumToDoListTest.js
 
 async function example() {
     // Создаём инстанс вебдрайвера
@@ -15,13 +16,14 @@ async function example() {
     await toDoInput.sendKeys("show the Selenium Test", Key.ENTER);
 
     //использование Ассерта
-    let todoItemText = await driver.findElement(By.xpath(".//li[@class = 'todo-item ']/span")).getText().then(function (value){
+    let todoItemText = await driver.findElement(By.xpath(".//li[@class = 'todo-item ']/span")).getText().then(function (value) {
         return value
     });
 
-    assert.strictEqual(todoItemText, "show the Selenium Test");
-    todoItemText.should.equal("show the Selenium Test");
+    assert.strictEqual(todoItemText, "show the Selenium Test!");
+    //todoItemText.should.equal("show the Selenium Test");
 
     await driver.quit();
 }
+
 example();

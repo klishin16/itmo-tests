@@ -1,10 +1,8 @@
-const { Builder, By, Key} = require('selenium-webdriver');
+const {Builder, By} = require('selenium-webdriver');
 const assert = require("assert");
-var should = require("chai").should();
-//SeleniumBurgersTests.js
-//npx mocha --no-timeouts 'SeleniumBurgersTests.js
 
-describe("burger tab tests", function (){
+//npx mocha --no-timeouts 'SeleniumBurgersTests.js'
+describe("burger tab tests", function () {
 
     let driver;
 
@@ -20,7 +18,7 @@ describe("burger tab tests", function (){
         driver.manage().window().maximize();
     });
 
-    it("select Sauces tab test", async function() {
+    it("select Sauces tab test", async function () {
 
         // Получаем элемент таба Соусы
         const saucesTab = driver.findElement(By.xpath(".//div/span[text()='Соусы']"));
@@ -37,13 +35,10 @@ describe("burger tab tests", function (){
         });
 
         //nodejs Ассерт
-        assert.strictEqual(currentButtonText, "Соусы")
-        //Chai Ассерт
-        currentButtonText.should.equal("Соусы");
-
+        assert.strictEqual(currentButtonText, "Соусы");
     });
 
-    it("select Buns tab test", async function() {
+    it("select Buns tab test", async function () {
 
         // Получаем элемент таба Булки
         const bunsTab = driver.findElement(By.xpath(".//div/span[text()='Булки']"));
@@ -63,13 +58,10 @@ describe("burger tab tests", function (){
         });
 
         //nodejs Ассерт
-        //assert.strictEqual(currentButtonText, "Булки")
-        //Chai Ассерт
-        currentButtonText.should.equal("Булкиb");
-
+        assert.strictEqual(currentButtonText, "Булки");
     });
 
-    it("select Topping tab test", async function() {
+    it("select Topping tab test", async function () {
 
 
         // Получаем элемент таба Начинки
@@ -86,10 +78,7 @@ describe("burger tab tests", function (){
         });
 
         //nodejs Ассерт
-        assert.strictEqual(currentButtonText, "Начинкиb")
-        //Chai Ассерт
-        currentButtonText.should.equal("Начинки");
-
+        assert.strictEqual(currentButtonText, "Начинки!");
     });
 
     afterEach(() => {
@@ -97,9 +86,3 @@ describe("burger tab tests", function (){
     });
 
 });
-
-
-
-
-
-
