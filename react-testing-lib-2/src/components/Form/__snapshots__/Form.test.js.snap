@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form tests input test 1`] = `
+<input
+  aria-invalid="false"
+  class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+  id="mui-3"
+  placeholder="Input value....."
+  type="text"
+  value=""
+/>
+`;
